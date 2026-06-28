@@ -1,0 +1,280 @@
+/* ==========================================================================
+   1. ATURAN DASAR & BACKGROUND GELAP PREMIUM
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #0B1120;
+    color: #FFFFFF;
+    min-height: 100vh;
+    padding-top: 80px; /* Memberi ruang agar beranda atas gak numpuk konten */
+}
+
+/* ==========================================================================
+   2. FIX BERANDA POJOK ATAS (NAVBAR) - RAPI & MODERN
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 4%;
+    background: rgba(11, 17, 32, 0.85); /* Kaca transparan gelap */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+/* Logo Rapi Gak Patah Baris */
+.logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #10A37F;
+}
+
+/* Menu Tengah Sembunyikan Dulu di HP Biar Gak Numpuk */
+.nav-links {
+    display: none; 
+}
+
+/* Tombol Pojok Kanan Atas */
+.btn-primary {
+    background: #10A37F;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   3. HERO SECTION (BAGIAN UTAMA)
+   ========================================================================== */
+.hero {
+    position: relative;
+    padding: 30px 5%;
+}
+
+.hero-glow {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(16, 163, 127, 0.2) 0%, rgba(0, 212, 255, 0) 70%);
+    pointer-events: none;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.badge {
+    background: rgba(16, 163, 127, 0.1);
+    color: #10A37F;
+    border: 1px solid rgba(16, 163, 127, 0.2);
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.hero-text h1 {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #10A37F 0%, #00D4FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description {
+    color: #94A3B8;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-outline {
+    background: rgba(22, 32, 51, 0.5);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* KOTAK VISUAL DASHBOARD */
+.glass-dashboard {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.dashboard-header {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 8px;
+}
+
+.dot { width: 9px; height: 9px; border-radius: 50%; }
+.dot.red { background: #EF4444; }
+.dot.yellow { background: #F59E0B; }
+.dot.green { background: #22C55E; }
+.title { font-size: 0.7rem; color: #64748B; margin-left: 5px; }
+
+.dashboard-body { font-family: monospace; font-size: 0.75rem; }
+.cmd { color: #00D4FF; margin-bottom: 5px; }
+.ai-status { color: #10A37F; font-weight: bold; margin-bottom: 10px; }
+.status-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.status-list li.done { color: #22C55E; }
+.status-list li.loading { color: #64748B; animation: pulse 1.5s infinite; }
+
+/* ==========================================================================
+   4. FITUR CHAT AI LANGSUNG MUNCUL DI BAWAHNYA
+   ========================================================================== */
+.chat-section {
+    padding: 20px 5% 50px 5%;
+}
+
+.chat-container {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 380px;
+}
+
+.chat-header h4 {
+    font-size: 0.85rem;
+    color: #94A3B8;
+}
+
+.chat-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 85%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.message.bot {
+    background: rgba(255, 255, 255, 0.06);
+    color: #FFFFFF;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+
+.message.user {
+    background: #10A37F;
+    color: #FFFFFF;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.chat-input-area input {
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px;
+    border-radius: 6px;
+    color: white;
+    outline: none;
+    font-size: 0.85rem;
+}
+
+.chat-input-area input:focus {
+    border-color: #10A37F;
+}
+
+.chat-input-area button {
+    background: #10A37F;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+/* ==========================================================================
+   LANGKAH 3: STYLING PRICING CARD PREMIUM 60K
+   ========================================================================== */
+.pricing-section { 
+    padding: 40px 5%; 
+}
+.pricing-card { 
+    text-align: center; 
+    border: 1px solid #10A37F !important; 
+}
+.pricing-card h3 { 
+    margin-bottom: 10px; 
+}
+.price { 
+    font-size: 1.8rem; 
+    font-weight: bold; 
+    color: #10A37F; 
+}
+.price span { 
+    font-size: 0.9rem; 
+    color: #94A3B8; 
+}
+.pricing-card ul { 
+    list-style: none; 
+    margin: 15px 0; 
+    text-align: left; 
+    display: inline-block; 
+}
